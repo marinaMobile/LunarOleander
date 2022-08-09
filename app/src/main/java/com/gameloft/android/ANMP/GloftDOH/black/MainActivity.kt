@@ -1,12 +1,15 @@
 package com.gameloft.android.ANMP.GloftDOH.black
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import androidx.activity.viewModels
 import com.appsflyer.AppsFlyerLib
 import com.gameloft.android.ANMP.GloftDOH.R
+import com.gameloft.android.ANMP.GloftDOH.black.CNST.DEV
 import com.orhanobut.hawk.Hawk
 import kotlinx.coroutines.*
 
@@ -26,7 +29,8 @@ class MainActivity : AppCompatActivity() {
             exec.putBoolean("activity_exec", true)
             exec.apply()
         }
-
+        Log.d("DevChecker", isDevMode(this).toString())
+        Hawk.put(DEV, isDevMode(this).toString())
 
         viewModel.deePP(this)
         AppsFlyerLib.getInstance()
@@ -57,4 +61,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    private fun isDevMode(context: Context): Boolean {
+        return run {
+            Settings.Secure.getInt(context.contentResolver,
+                Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0
+        }
+    }
+
 }
