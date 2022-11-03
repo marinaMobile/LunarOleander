@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".white.Game"
-    android:background="#CFE2A4">
+    android:background="@drawable/bg">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +24,7 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:onClick="rock"
-            android:text="Rock" />
+            android:text="PHARAOH" />
 
         <Button
             android:id="@+id/button3"
@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:onClick="paper"
-            android:text="Paper" />
+            android:text="Q" />
 
         <Button
             android:id="@+id/button2"
@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:onClick="scissors"
-            android:text="Scissors" />
+            android:text="BOOK" />
     </LinearLayout>
 
     <ImageView
@@ -50,7 +50,7 @@
         android:layout_width="200dp"
         android:layout_height="180dp"
         android:layout_margin="40dp"
-        android:src="@drawable/scissors"
+        android:src="@drawable/book"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -60,19 +60,26 @@
         android:layout_width="200dp"
         android:layout_height="180dp"
         android:layout_margin="40dp"
-        android:src="@drawable/scissors"
+        android:src="@drawable/book"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/enemy_pic"
+        app:layout_constraintBottom_toTopOf="@id/player_pic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="15dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/enemy_pic"
-        app:layout_constraintBottom_toTopOf="@id/player_pic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+
+        android:background="@color/black">
 
         <LinearLayout
             android:id="@+id/ll_text"
@@ -90,6 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="You"
+                android:textColor="@color/white"
                 android:fontFamily="@font/catamaran"
                 android:gravity="center"
                 android:textSize="32sp"/>
@@ -100,7 +108,7 @@
                 android:layout_height="wrap_content"
                 android:text="0"
                 android:fontFamily="@font/catamaran"
-                android:textColor="#79A93B"
+                android:textColor="@color/white"
                 android:textSize="50sp"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
@@ -126,6 +134,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Enemy"
+                android:textColor="@color/white"
                 android:fontFamily="@font/catamaran"
                 android:textSize="32sp"/>
 
@@ -135,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textColor="#79A93B"
+                android:textColor="@color/white"
                 android:textSize="50sp"
                 android:fontFamily="@font/catamaran"
                 android:textStyle="bold"
@@ -143,6 +152,8 @@
                 />
 
         </LinearLayout>
+
     </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
